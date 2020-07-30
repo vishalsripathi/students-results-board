@@ -1,0 +1,137 @@
+<div class="container">
+  <form id="contact" [formGroup]="signupForm" (click)="onSubmit()">
+    <h3>School​ ​Admission​ ​Form</h3>
+    <fieldset>
+      <input
+        placeholder="Name​"
+        type="text"
+        autofocus
+        id="username"
+        maxlength="20"
+        pattern="^[a-zA-Z][a-zA-Z\\s]+$"
+        formControlName="username"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('username').valid &&
+          signupForm.get('username').touched &&
+          isValidFormSubmitted != null &&
+          !isValidFormSubmitted
+        "
+        [ngClass]="'error'"
+        class="help-block"
+        ><span *ngIf="signupForm.get('username').errors['required']"
+          >Please enter a name</span
+        ><span *ngIf="username.errors?.pattern && username.touched"
+          >Please enter a vaild name</span
+        >
+      </span>
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Last​ ​Name"
+        type="text"
+        id="lastName"
+        formControlName="lastName"
+        maxlength="20"
+        pattern="^[a-zA-Z][a-zA-Z\\s]+$"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('lastName').valid &&
+          signupForm.get('lastName').touched &&
+          isValidFormSubmitted != null &&
+          !isValidFormSubmitted
+        "
+        [ngClass]="'error'"
+        class="help-block"
+        ><span *ngIf="signupForm.get('lastName').errors['required']"
+          >Please enter a name</span
+        ><span *ngIf="lastName.errors?.pattern && lastName.touched"
+          >Please enter a vaild name</span
+        >
+      </span>
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Class"
+        type="text"
+        id="class"
+        formControlName="class"
+        pattern="^[a-zA-Z0-9_.-]*$"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('class').valid &&
+          signupForm.get('class').touched &&
+          isValidFormSubmitted != null &&
+          !isValidFormSubmitted
+        "
+        [ngClass]="'error'"
+        class="help-block"
+        ><span *ngIf="signupForm.get('class').errors['required']"
+          >Please enter a class</span
+        ><span *ngIf="class.errors?.pattern && class.touched"
+          >Please enter a vaild class</span
+        >
+      </span>
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Year of Passing"
+        type="text"
+        id="year"
+        formControlName="year"
+        pattern="^(19|20)\d{2}$"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('year').valid &&
+          signupForm.get('year').touched &&
+          isValidFormSubmitted != null &&
+          !isValidFormSubmitted
+        "
+        [ngClass]="'error'"
+        class="help-block"
+        ><span *ngIf="signupForm.get('year').errors['required']"
+          >Please enter a valid year</span
+        ><span *ngIf="year.errors?.pattern && year.touched"
+          >Please enter a vaild year</span
+        >
+      </span>
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Percentage of Marks"
+        type="text"
+        id="percentage"
+        formControlName="percentage"
+        pattern="^[0-9]*$"
+      />
+      <span
+        *ngIf="
+          !signupForm.get('percentage').valid &&
+          signupForm.get('percentage').touched &&
+          isValidFormSubmitted != null &&
+          !isValidFormSubmitted
+        "
+        [ngClass]="'error'"
+        class="help-block"
+        ><span *ngIf="signupForm.get('percentage').errors['required']"
+          >Please enter a percentage</span
+        ><span *ngIf="percentage.errors?.pattern && percentage.touched"
+          >Please enter only numbers</span
+        >
+      </span>
+    </fieldset>
+    <p
+      *ngIf="isValidFormSubmitted && signupForm.pristine"
+      [ngClass]="'success'"
+    >
+      Form submitted successfully.
+    </p>
+    <button type="submit" [disabled]="signupForm.invalid">
+      Submit
+    </button>
+  </form>
+</div>
