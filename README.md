@@ -1,7 +1,7 @@
 # Students Results Board
 
 ## Live Preview
-* [Click Here]()
+* [Click Here](https://students-results-board.web.app/)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for viewing purposes.
